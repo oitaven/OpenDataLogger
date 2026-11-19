@@ -24,6 +24,7 @@ jobs:
           platforms: |
             - name: arduino:renesas_uno
               version: 1.6.0
-          libraries: '[]'
+          libraries: |
+            - name: SD
           sketch-paths: |
             - .

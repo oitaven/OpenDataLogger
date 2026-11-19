@@ -1,0 +1,19 @@
+# Nunca publicar credenciais ou chaves
+arduino_secrets.h
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+
+# Ficheiros do Arduino / temporários
+build/
+*.bin
+*.elf
+*.hex
+*.uf2
+*.tmp
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

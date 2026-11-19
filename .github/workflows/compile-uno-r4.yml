@@ -1,0 +1,29 @@
+name: Compilar para Arduino UNO R4 WiFi
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    name: Arduino Renesas UNO R4 WiFi (1.6.0)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v4
+      - name: Gerar credenciais fictícias para CI (não publicar segredos)
+        run: cp arduino_secrets.h.example arduino_secrets.h
+      - name: Compilar sketch
+        uses: arduino/compile-sketches@v1
+        with:
+          fqbn: arduino:renesas_uno:unor4wifi
+          platforms: |
+            - name: arduino:renesas_uno
+              version: 1.6.0
+          libraries: '[]'
+          sketch-paths: |
+            - .
